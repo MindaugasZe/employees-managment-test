@@ -1,0 +1,58 @@
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Add a new Employee</h1>
+        <form [formGroup]="employeeForm">
+            <div class="row form-group">
+                <div class="col-sm-4 ">
+                    <label>First name</label>
+                    <input formControlName="firstName"
+                     type="text" 
+                     class="form-control input-group has-validation "
+                      
+                     placeholder="First name" 
+                     [ngClass] = "{'is-invalid':firstName?.touched && firstName?.errors}"
+                     />
+                </div>
+                <div class="col-sm-4">
+                    <label>Last name</label>
+                    <input formControlName="lastName" 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Last name" />
+                </div>
+                <div class="col-sm-4">
+                    <label>Date of birth</label>
+                    <input formControlName="dateOfBirth" 
+                    type="date" 
+                    class="form-control "
+                     placeholder="Date of birth" />
+                </div>
+                <div class="col-sm-4">
+                    <label>Position</label>
+                    <input formControlName="position"
+                     type="text" 
+                     class="form-control" 
+                     placeholder="Position" />
+                </div>
+                <div class="col-sm-4">
+                    <label>Salary</label>
+                    <input formControlName="salary" type="number" class="form-control" placeholder="Salary" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button [disabled]="employeeForm.invalid" class="btn btn-primary"
+                        (click)="addEmployee()">
+                        Submit
+                    </button>
+                    <button class="btn btn-danger" (click)="employeeForm.reset()">
+                        Reset your form
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
